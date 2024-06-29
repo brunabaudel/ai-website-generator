@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/:path*",
-      "destination": "/api/:path*"
+      "destination": "/api/generateSkeleton.ts"
     }
   ],
   "redirects": [

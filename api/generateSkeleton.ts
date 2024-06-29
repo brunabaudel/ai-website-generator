@@ -12,7 +12,10 @@ const anthropic = new Anthropic({
 // To test: http://localhost:3000/generateSkeleton?openapiUrl=https%3A%2F%2Fopenapi-tools.actionschema.com%2FpruneOpenapi%3FopenapiUrl%3Dhttps%3A%2F%2Fpetstore.swagger.io%2Fv2%2Fswagger.json%26operationIds%3DaddPet%2CgetPetById%2CupdatePet%2CdeletePet
 export const GET = async (request: Request) => {
   const url = new URL(request.url);
-  const openapiUrl = url.searchParams.get("openapiUrl")
+
+  // TODO: Maybe decode?
+  const openapiUrl = url.pathname;
+ // const openapiUrl = url.searchParams.get("openapiUrl")
 
   if (!openapiUrl) {
     return new Response("Missing parameter", {status: 400});
